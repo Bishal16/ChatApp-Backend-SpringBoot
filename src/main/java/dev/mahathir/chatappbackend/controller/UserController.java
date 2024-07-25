@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,6 +22,7 @@ public class UserController {
         return userService.saveUser(userDto);
     }
 
+    // get user by PhoneNumber
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         Optional<User> user = userService.getUserByPhoneNumber(id);
@@ -28,10 +30,17 @@ public class UserController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    // get user by PhoneNumber
     @GetMapping("/username/{username}")
     public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
         Optional<User> user = userService.getUserByUsername(username);
         return user.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
+    // get all user
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 }

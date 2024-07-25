@@ -20,9 +20,9 @@ public class MessageService {
     private UserRepository userRepository;
 
     public Message sendMessage(MessageDto messageDto) {
-        User sender = userRepository.findById(messageDto.getSenderId())
+        User sender = userRepository.findById(messageDto.getSenderPhoneNumber())
                 .orElseThrow(() -> new RuntimeException("Sender not found"));
-        User recipient = userRepository.findById(messageDto.getRecipientId())
+        User recipient = userRepository.findById(messageDto.getRecipientPhoneNumber())
                 .orElseThrow(() -> new RuntimeException("Recipient not found"));
 
         Message message = new Message();

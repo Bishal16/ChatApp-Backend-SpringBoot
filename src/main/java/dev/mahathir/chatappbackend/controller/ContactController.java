@@ -14,11 +14,13 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
+    // create a contact
     @PostMapping
     public Contact addContact(@RequestBody ContactDto contactDto) {
         return contactService.addContact(contactDto);
     }
 
+    // get all contacts
     @GetMapping
     public List<Contact> getAllContacts() {
         return contactService.getAllContacts();

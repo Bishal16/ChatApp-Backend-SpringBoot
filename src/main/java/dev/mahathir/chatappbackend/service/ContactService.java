@@ -20,8 +20,12 @@ public class ContactService {
     private UserRepository userRepository;
 
     public Contact addContact(ContactDto contactDto) {
-        Optional<User> user = userRepository.findById(contactDto.getUserId());
-        Optional<User> contactUser = userRepository.findById(contactDto.getContactId());
+        if(contactRepository.findByUserPhoneNumberAndContactPhoneNumber(contactDto.getUserPhoneNumber() ,contactDto.getContactPhoneNumber()).isPresent()){
+            throw new RuntimeException("Contact with phone number " + contactDto.getContactPhoneNumber() + " already added.");
+        }
+
+        Optional<User> user = userRepository.findById(contactDto.getUserPhoneNumber());
+        Optional<User> contactUser = userRepository.findById(contactDto.getContactPhoneNumber());
 
         if (user.isPresent() && contactUser.isPresent()) {
             Contact contact = new Contact();

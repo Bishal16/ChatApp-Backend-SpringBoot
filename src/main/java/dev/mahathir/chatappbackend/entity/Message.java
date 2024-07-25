@@ -1,4 +1,4 @@
-package dev.mahathir.chatappbackend.model;
+package dev.mahathir.chatappbackend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,12 +17,13 @@ public class Message {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "sender_id")
+    @JoinColumn(name = "sender_phone_number", referencedColumnName = "phoneNumber")
     private User sender;
 
     @ManyToOne
-    @JoinColumn(name = "recipient_id")
+    @JoinColumn(name = "recipient_phone_number", referencedColumnName = "phoneNumber")
     private User recipient;
+
 
     private String content;
     private LocalDateTime timestamp;

@@ -1,8 +1,8 @@
 package dev.mahathir.chatappbackend.service;
 
 import dev.mahathir.chatappbackend.dto.MessageDto;
-import dev.mahathir.chatappbackend.model.Message;
-import dev.mahathir.chatappbackend.model.User;
+import dev.mahathir.chatappbackend.entity.Message;
+import dev.mahathir.chatappbackend.entity.User;
 import dev.mahathir.chatappbackend.repository.MessageRepository;
 import dev.mahathir.chatappbackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    public List<Message> getMessages(Long senderId, Long recipientId) {
-        return messageRepository.findBySenderIdAndRecipientId(senderId, recipientId);
+    public List<Message> getMessages(String senderId, Long recipientId) {
+        return messageRepository.findBySenderPhoneNumberAndRecipientPhoneNumber(senderId, String.valueOf(recipientId));
     }
 }

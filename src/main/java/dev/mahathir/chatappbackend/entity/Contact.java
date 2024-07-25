@@ -1,4 +1,4 @@
-package dev.mahathir.chatappbackend.model;
+package dev.mahathir.chatappbackend.entity;
 
 
 import jakarta.persistence.*;
@@ -16,10 +16,10 @@ public class Contact {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_phone_number", referencedColumnName = "phoneNumber")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "contact_id")
+    @JoinColumn(name = "contact_phone_number", referencedColumnName = "phoneNumber")
     private User contact;
 }

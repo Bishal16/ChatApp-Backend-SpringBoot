@@ -19,8 +19,9 @@ public class MessageController {
         return messageService.sendMessage(messageDto);
     }
 
-    @GetMapping("/{senderId}/{recipientId}")
-    public List<Message> getMessages(@PathVariable Long senderId, @PathVariable Long recipientId) {
-        return messageService.getMessages(String.valueOf(senderId), recipientId);
+    // get chat history of sender and receiver
+    @GetMapping("/{senderPhoneNumber}/{recipientPhoneNumber}")
+    public List<Message> getMessages(@PathVariable String senderPhoneNumber, @PathVariable String recipientPhoneNumber) {
+        return messageService.getMessages(senderPhoneNumber, recipientPhoneNumber);
     }
 }

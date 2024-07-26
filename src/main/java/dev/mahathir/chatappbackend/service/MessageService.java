@@ -34,7 +34,7 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    public List<Message> getMessages(String senderId, Long recipientId) {
-        return messageRepository.findBySenderPhoneNumberAndRecipientPhoneNumber(senderId, String.valueOf(recipientId));
+    public List<Message> getMessages(String senderPhoneNumber, String recipientPhoneNumber) {
+        return messageRepository.findBySenderPhoneNumberOrRecipientPhoneNumber(senderPhoneNumber, recipientPhoneNumber);
     }
 }

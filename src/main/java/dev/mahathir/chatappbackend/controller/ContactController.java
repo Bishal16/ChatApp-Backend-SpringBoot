@@ -21,8 +21,8 @@ public class ContactController {
     }
 
     // get all contacts
-    @GetMapping
-    public List<Contact> getAllContacts() {
-        return contactService.getAllContacts();
+    @GetMapping("/{userPhoneNumber}")
+    public List<Contact> getAllContacts(@PathVariable String userPhoneNumber) {
+        return contactService.getAllContacts(userPhoneNumber);
     }
 }

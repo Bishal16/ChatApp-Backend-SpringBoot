@@ -11,10 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "user")
 public class User {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
     @Id
     private String phoneNumber;
 
@@ -26,4 +22,6 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    private String imageUrl;
 }

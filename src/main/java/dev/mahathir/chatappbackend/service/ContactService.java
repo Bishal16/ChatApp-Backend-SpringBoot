@@ -37,7 +37,7 @@ public class ContactService {
         }
     }
 
-    // get all contact of an user
+    // get all contact of a user
     public List<Contact> getAllContacts(String userPhoneNumber) {
         return contactRepository.findByUserPhoneNumber(userPhoneNumber);
     }

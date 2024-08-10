@@ -25,7 +25,7 @@ public class UserService {
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
-        user.setUsername(userDto.getUsername());
+//        user.setUsername(userDto.getUsername());
         user.setPassword(userDto.getPassword());
         return userRepository.save(user);
     }
@@ -34,9 +34,9 @@ public class UserService {
         return userRepository.findByPhoneNumber(phoneNumber);
     }
 
-    public Optional<User> getUserByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
+//    public Optional<User> getUserByUsername(String username) {
+//        return userRepository.findByUsername(username);
+//    }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();

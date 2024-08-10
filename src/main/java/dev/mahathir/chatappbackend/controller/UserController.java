@@ -30,13 +30,13 @@ public class UserController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // get user by PhoneNumber
-    @GetMapping("/username/{username}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        Optional<User> user = userService.getUserByUsername(username);
-        return user.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
+    // get user by userName
+//    @GetMapping("/username/{username}")
+//    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
+//        Optional<User> user = userService.getUserByUsername(username);
+//        return user.map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+//    }
     
     // get all user
     @GetMapping
